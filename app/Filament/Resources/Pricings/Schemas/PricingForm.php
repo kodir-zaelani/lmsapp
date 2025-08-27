@@ -10,16 +10,18 @@ class PricingForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('duration')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('price')
-                    ->required()
-                    ->numeric()
-                    ->prefix('$'),
-            ]);
+        ->components([
+            TextInput::make('name')
+            ->required(),
+            TextInput::make('price')
+            ->required()
+            ->numeric()
+            ->prefix('IDR'),
+            TextInput::make('duration')
+            ->required()
+            ->prefix('Month')
+            ->numeric(),
+
+        ]);
     }
 }
