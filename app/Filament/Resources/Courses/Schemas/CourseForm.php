@@ -24,7 +24,7 @@ class CourseForm
                 Textarea::make('about')
                     ->default(null)
                     ->columnSpanFull(),
-                TextInput::make('images')
+                TextInput::make('image')
                     ->default(null),
                 Toggle::make('is_popular')
                     ->required(),

@@ -19,13 +19,13 @@ class CoursesTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image')
+                    ->searchable(),
                 TextColumn::make('category.name')
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('images')
                     ->searchable(),
                 IconColumn::make('is_popular')
                     ->boolean(),

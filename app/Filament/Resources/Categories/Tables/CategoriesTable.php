@@ -19,7 +19,7 @@ class CategoriesTable
     {
         return $table
             ->columns([
-                ImageColumn::make('images'),
+                // ImageColumn::make('image'),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('created_at')

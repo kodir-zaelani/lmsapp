@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('about')->nullable();
-            $table->string('images')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('is_popular')->default(false);
             $table->softDeletes();
             $table->timestamps();
