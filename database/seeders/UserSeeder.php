@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'id'                => '9f48408c-53fc-4038-ac05-7cc27ae2cdd2',
             'name'              => 'Administrator',
             'slug'              => 'administrator',
-            'email'             => 'admin@ .com',
+            'email'             => 'admin@lmsapp.com',
             'username'          => 'Admin!',
             'phone'      => '082159888845',
             'masterstatus'      => '1',
