@@ -16,9 +16,6 @@ class SettingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 TextColumn::make('webname')
                     ->searchable(),
                 TextColumn::make('tagline')

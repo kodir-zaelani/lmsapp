@@ -16,6 +16,7 @@ class Course extends Model
     use HasUuids;
     use SoftDeletes;
 
+    protected $guarded    = [];
     protected $primaryKey = 'id';
 
     public function scopeSearch($query, $term)

@@ -14,6 +14,7 @@ class Transaction extends Model
     use HasUuids;
     use SoftDeletes;
 
+    protected $guarded    = [];
     protected $primaryKey = 'id';
 
 

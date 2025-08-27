@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Categories\Schemas;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 
 class CategoryForm
 {
@@ -11,12 +12,11 @@ class CategoryForm
     {
         return $schema
             ->components([
+                FileUpload::make('images')
+                    ->default(null)
+                    ->columnSpanFull(),
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('slug')
-                    ->required(),
-                TextInput::make('images')
-                    ->default(null),
             ]);
     }
 }
