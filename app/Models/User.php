@@ -3,15 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Panel;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -19,6 +21,10 @@ class User extends Authenticatable
     use HasUuids;
     use HasRoles;
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->hasRole(['admin', 'superadmin', 'mentor']);
+    }
     /**
     * The attributes that are mass assignable.
     *
@@ -121,17 +127,17 @@ class User extends Authenticatable
      */
     public function transactions(): HasMany
     {
-        return $this->hasMany(Transactions::class, 'user_id');
+        return $this->hasMany(Transaction::class, 'user_id');
     }
      /**
      * Get all of the transactions for the Pricing
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function mentors(): HasMany
-    {
-        return $this->hasMany(Transaction::class, 'user_id');
-    }
+    // public function courseMentors(): HasMany
+    // {
+    //     return $this->hasMany(CourseMentor::class, 'user_id');
+    // }
 
     public function getActiveSubcription()
     {

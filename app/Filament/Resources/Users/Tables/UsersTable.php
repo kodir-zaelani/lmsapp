@@ -16,45 +16,42 @@ class UsersTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->columns([
-                ImageColumn::make('image'),
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                TextColumn::make('username')
-                    ->searchable(),
-                TextColumn::make('displayname')
-                    ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                IconColumn::make('status')
-                    ->boolean(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+        ->columns([
+            ImageColumn::make('image')
+            ->circular(),
+            TextColumn::make('name')
+            ->searchable(),
+            TextColumn::make('email')
+            ->label('Email address')
+            ->searchable(),
+            TextColumn::make('roles.name')
+            ->searchable(),
+            IconColumn::make('status')
+            ->boolean(),
+            TextColumn::make('created_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('deleted_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
-            ])
-            ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
-}
+                ])
+                ->recordActions([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    ])
+                    ->toolbarActions([
+                        BulkActionGroup::make([
+                            DeleteBulkAction::make(),
+                        ]),
+                        ]);
+                    }
+                }

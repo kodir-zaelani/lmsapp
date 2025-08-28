@@ -11,6 +11,7 @@ use App\Filament\Resources\SectionContents\Schemas\SectionContentInfolist;
 use App\Filament\Resources\SectionContents\Tables\SectionContentsTable;
 use App\Models\SectionContent;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -25,6 +26,7 @@ class SectionContentResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'Content';
+    protected static string | UnitEnum | null $navigationGroup = 'Product';
 
     public static function form(Schema $schema): Schema
     {

@@ -11,6 +11,7 @@ use App\Filament\Resources\Categories\Schemas\CategoryInfolist;
 use App\Filament\Resources\Categories\Tables\CategoriesTable;
 use App\Models\Category;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -25,6 +26,7 @@ class CategoryResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::FolderOpen;
 
     protected static ?string $recordTitleAttribute = 'Category';
+    protected static string | UnitEnum | null $navigationGroup = 'Product';
 
     public static function form(Schema $schema): Schema
     {

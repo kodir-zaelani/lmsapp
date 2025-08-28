@@ -54,6 +54,6 @@ class BehindAppsPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])->sidebarCollapsibleOnDesktop();
     }
 }

@@ -15,8 +15,6 @@ class RoleForm
                     ->required(),
                 TextInput::make('description')
                     ->default(null),
-                TextInput::make('guard_name')
-                    ->required(),
             ]);
     }
 }

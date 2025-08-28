@@ -11,6 +11,7 @@ use App\Filament\Resources\Settings\Schemas\SettingInfolist;
 use App\Filament\Resources\Settings\Tables\SettingsTable;
 use App\Models\Setting;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -23,6 +24,7 @@ class SettingResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'Setting App';
+    protected static string | UnitEnum | null $navigationGroup = 'Authentication';
 
     public static function form(Schema $schema): Schema
     {

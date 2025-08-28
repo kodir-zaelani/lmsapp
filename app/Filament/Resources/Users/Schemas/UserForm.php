@@ -31,6 +31,13 @@ class UserForm
             ->default(null),
             TextInput::make('displayname')
             ->default(null),
+            Select::make('occupation')
+            ->options([
+                'product manager' => 'Product Manager',
+                'developer' => 'Developer',
+                'published' => 'Published',
+            ])
+            ->native(false),
             TextInput::make('phone')
             ->tel()
             ->default(null),

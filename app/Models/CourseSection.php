@@ -26,12 +26,6 @@ class CourseSection extends Model
         });
     }
 
-    // Set slug auto with name dengan muttator
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
     /**
     * Get the user that owns the Course
     *

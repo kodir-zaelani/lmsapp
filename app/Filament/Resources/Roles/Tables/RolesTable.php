@@ -15,14 +15,9 @@ class RolesTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('description')
-                    ->searchable(),
-                TextColumn::make('guard_name')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

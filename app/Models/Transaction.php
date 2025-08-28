@@ -14,7 +14,7 @@ class Transaction extends Model
     use HasUuids;
     use SoftDeletes;
 
-    protected $guarded    = [];
+    protected $guarded    = ['duration'];
     protected $primaryKey = 'id';
 
 
@@ -39,7 +39,7 @@ class Transaction extends Model
     */
     public function student(): BelongsTo
     {
-        return $this->belongsTo(Uses::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function isActive(): bool

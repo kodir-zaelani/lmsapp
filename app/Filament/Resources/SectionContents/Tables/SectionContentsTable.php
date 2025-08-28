@@ -17,40 +17,41 @@ class SectionContentsTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->columns([
-                TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
-                TextColumn::make('courseSection.name')
-                    ->searchable(),
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+        ->columns([
+            TextColumn::make('courseSection.course.name')
+            ->label('Course')
+            ->searchable(),
+            TextColumn::make('courseSection.name')
+            ->label('Section')
+            ->searchable(),
+            TextColumn::make('name')
+            ->searchable(),
+            TextColumn::make('deleted_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('created_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')
+            ->dateTime()
+            ->sortable()
+            ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 TrashedFilter::make(),
-            ])
-            ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
-                ]),
-            ]);
-    }
-}
+                ])
+                ->recordActions([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    ])
+                    ->toolbarActions([
+                        BulkActionGroup::make([
+                            DeleteBulkAction::make(),
+                            ForceDeleteBulkAction::make(),
+                            RestoreBulkAction::make(),
+                        ]),
+                    ]);
+                }
+            }

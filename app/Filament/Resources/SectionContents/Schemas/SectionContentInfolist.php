@@ -11,10 +11,9 @@ class SectionContentInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('id')
-                    ->label('ID'),
                 TextEntry::make('courseSection.name'),
                 TextEntry::make('name'),
+                TextEntry::make('content'),
                 TextEntry::make('deleted_at')
                     ->dateTime(),
                 TextEntry::make('created_at')

@@ -2,21 +2,23 @@
 
 namespace App\Filament\Resources\Courses;
 
-use App\Filament\Resources\Courses\Pages\CreateCourse;
-use App\Filament\Resources\Courses\Pages\EditCourse;
-use App\Filament\Resources\Courses\Pages\ListCourses;
-use App\Filament\Resources\Courses\Pages\ViewCourse;
-use App\Filament\Resources\Courses\Schemas\CourseForm;
-use App\Filament\Resources\Courses\Schemas\CourseInfolist;
-use App\Filament\Resources\Courses\Tables\CoursesTable;
-use App\Models\Course;
 use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use UnitEnum;
+use App\Models\Course;
 use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\Courses\Pages\EditCourse;
+use App\Filament\Resources\Courses\Pages\ViewCourse;
+use App\Filament\Resources\Courses\Pages\ListCourses;
+use App\Filament\Resources\Courses\Pages\CreateCourse;
+use App\Filament\Resources\Courses\Schemas\CourseForm;
+use App\Filament\Resources\Courses\Tables\CoursesTable;
+use App\Filament\Resources\Courses\Schemas\CourseInfolist;
+use App\Filament\Resources\Courses\RelationManagers\CourseSectionsRelationManager;
 
 class CourseResource extends Resource
 {
@@ -24,6 +26,7 @@ class CourseResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::AcademicCap;
 
+    protected static string | UnitEnum | null $navigationGroup = 'Product';
     protected static ?string $recordTitleAttribute = 'Course';
 
     public static function form(Schema $schema): Schema
@@ -44,7 +47,7 @@ class CourseResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // CourseSectionsRelationManager::class,
         ];
     }
 

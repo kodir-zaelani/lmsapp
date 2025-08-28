@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('bookeng_trx_id');
+            $table->string('booking_trx_id');
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('pricing_id')->constrained()->cascadeOnDelete();
             $table->unsignedInteger('sub_total_amount')->nullable();

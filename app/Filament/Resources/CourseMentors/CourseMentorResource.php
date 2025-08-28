@@ -11,6 +11,7 @@ use App\Filament\Resources\CourseMentors\Schemas\CourseMentorInfolist;
 use App\Filament\Resources\CourseMentors\Tables\CourseMentorsTable;
 use App\Models\CourseMentor;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,9 +23,10 @@ class CourseMentorResource extends Resource
 {
     protected static ?string $model = CourseMentor::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Mentor';
+    protected static ?string $recordTitleAttribute = 'Course Mentor';
+    protected static string | UnitEnum | null $navigationGroup = 'Product';
 
     public static function form(Schema $schema): Schema
     {

@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources\CourseMentors\Tables;
 
+use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Tables\Table;
+use Filament\Actions\ForceDeleteBulkAction;
 
 class CourseMentorsTable
 {
@@ -19,12 +20,18 @@ class CourseMentorsTable
     {
         return $table
         ->columns([
-            IconColumn::make('is_active')
-            ->boolean(),
+            ImageColumn::make('mentor.image')
+            ->label('Photo')
+            ->searchable(),
+            TextColumn::make('mentor.name')
+            ->searchable(),
+             ImageColumn::make('course.image')
+            ->label('Image')
+            ->searchable(),
             TextColumn::make('course.name')
             ->searchable(),
-            TextColumn::make('mentor->name')
-            ->searchable(),
+            IconColumn::make('is_active')
+            ->boolean(),
             TextColumn::make('deleted_at')
             ->dateTime()
             ->sortable()
